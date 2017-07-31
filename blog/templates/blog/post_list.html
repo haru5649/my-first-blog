@@ -1,15 +1,23 @@
+{% load staticfiles %}
 <html>
     <head>
         <title>hahahahaha October!</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
+
+    {% for post in posts %}
         <div>
             <h1><a href="http://wise.uos.ac.kr/">I'm sleepy</a></h>
         </div>
-        
+    
         <div>
-        <p>Hi there! Here you are</p>
-        <p>It works!</p>
+            <p>published: {{ post.published_date }}</p>
+            <p>{{ post.title }}</p>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
+    {% endfor %}
     </body>
 </html>
